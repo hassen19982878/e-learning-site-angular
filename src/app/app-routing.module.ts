@@ -1,35 +1,82 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AdminGuard } from './admin.guard';
+import { AuthGuard } from './auth.guard';
 import { CategoryAddComponent } from './components/private/admin/categories/category-add/category-add.component';
 import { CategoryListComponent } from './components/private/admin/categories/category-list/category-list.component';
 import { CategoryUpdateComponent } from './components/private/admin/categories/category-update/category-update.component';
-import { StuduentAddComponent } from './components/private/admin/studuents/studuent-add/studuent-add.component';
 import { StuduentListComponent } from './components/private/admin/studuents/studuent-list/studuent-list.component';
-import { StuduentUpdateComponent } from './components/private/admin/studuents/studuent-update/studuent-update.component';
-import { TeacherAddComponent } from './components/private/admin/teachers/teacher-add/teacher-add.component';
 import { TeacherListComponent } from './components/private/admin/teachers/teacher-list/teacher-list.component';
-import { TeacherUpdateComponent } from './components/private/admin/teachers/teacher-update/teacher-update.component';
 import { DashboardComponent } from './components/private/shared/dashboard/dashboard.component';
+import { MyCoursesComponent } from './components/private/student/my-courses/my-courses.component';
+import { CourseAddComponent } from './components/private/teacher/courses/course-add/course-add.component';
+import { CourseListComponent } from './components/private/teacher/courses/course-list/course-list.component';
+import { CourseUpdateComponent } from './components/private/teacher/courses/course-update/course-update.component';
+import { LessonAddComponent } from './components/private/teacher/lessons/lesson-add/lesson-add.component';
+import { LessonListComponent } from './components/private/teacher/lessons/lesson-list/lesson-list.component';
+import { LessonUpdateComponent } from './components/private/teacher/lessons/lesson-update/lesson-update.component';
+import { AboutComponent } from './components/public/about/about.component';
+import { CourseDetailsComponent } from './components/public/course-details/course-details.component';
 import { CoursesComponent } from './components/public/courses/courses.component';
 import { HomeComponent } from './components/public/home/home.component';
 import { InstructorsComponent } from './components/public/instructors/instructors.component';
+import { LoginInstructorComponent } from './components/public/login-instructor/login-instructor.component';
+import { LoginComponent } from './components/public/login/login.component';
+import { RegisterInstructorComponent } from './components/public/register-instructor/register-instructor.component';
+import { RegisterStudentComponent } from './components/public/register-student/register-student.component';
+import { InstructorGuard } from './instructor.guard';
+import { StudentGuard } from './student.guard';
 const routes: Routes = [{path:'',component:HomeComponent},
 {path:'home',component:HomeComponent},
 {path:'courses',component:CoursesComponent},
 {path:'instructors',component:InstructorsComponent},
-{path:'dashboard',component:DashboardComponent},
-{path:'categories-list',component:CategoryListComponent},
-{path:'add-category',component:CategoryAddComponent},
-{path:'category-update',component:CategoryUpdateComponent},
-{path:'studuents-list',component:StuduentListComponent},
-{path:'add-studuent',component:StuduentAddComponent},
-{path:'studuent-update',component:StuduentUpdateComponent},
-{path:'teachers-list',component:TeacherListComponent},
-{path:'add-teacher',component:TeacherAddComponent},
-{path:'teacher-update',component:TeacherUpdateComponent},
-{path:'courses-list',component:TeacherListComponent},
-{path:'add-course',component:TeacherAddComponent},
-{path:'course-update',component:TeacherUpdateComponent},
+{path:'dashboard',component:DashboardComponent,
+canActivate:[AuthGuard]
+},
+{path:'categories-list',component:CategoryListComponent,
+canActivate:[AdminGuard]
+},
+{path:'add-category',component:CategoryAddComponent,
+canActivate:[AdminGuard]
+},
+{path:'category-update/:id',component:CategoryUpdateComponent,
+canActivate:[AdminGuard]
+},
+{path:'studuents-list',component:StuduentListComponent,
+canActivate:[AdminGuard]
+},
+{path:'teachers-list',component:TeacherListComponent,
+canActivate:[AdminGuard]
+},
+{path:'courses-list',component:CourseListComponent,
+canActivate:[InstructorGuard]
+},
+{path:'add-course',component:CourseAddComponent,
+canActivate:[InstructorGuard]
+},
+{path:'course-update',component:CourseUpdateComponent,
+canActivate:[InstructorGuard]
+},
+{path:'lessons-list',component:LessonListComponent,
+canActivate:[InstructorGuard]
+},
+{path:'add-lesson',component:LessonAddComponent,
+canActivate:[InstructorGuard]
+},
+{path:'lesson-update',component:LessonUpdateComponent,
+canActivate:[InstructorGuard]
+},
+{path:'login',component:LoginComponent},
+{path:"login-instructor",component:LoginInstructorComponent},
+
+{path:'course-details/:id',component:CourseDetailsComponent,
+},
+{path:'about',component:AboutComponent},
+{path:"registerStudent",component:RegisterStudentComponent},
+{path:"registerInstructor",component:RegisterInstructorComponent},
+{path:"login-instructor",component:LoginInstructorComponent},
+{path:'my-courses',component:MyCoursesComponent}
 
 ];
 
@@ -37,4 +84,5 @@ const routes: Routes = [{path:'',component:HomeComponent},
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+ }

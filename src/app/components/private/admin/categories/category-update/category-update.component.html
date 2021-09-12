@@ -39,7 +39,7 @@
                         </div>
               
                         <div class="card-body">
-                      <form [formGroup]="formUpdateCategory">
+                      <form [formGroup]="formUpdateCategory" (ngSubmit)="updateCategory()">
                           <div class="form-group">
                           <label for="name" id="name">Name : </label>
                           <input type="text" class="form-control form-control-sm" formControlName="name">

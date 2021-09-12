@@ -4,14 +4,20 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 @Component({
   selector: 'app-course-add',
   templateUrl: './course-add.component.html',
-  styleUrls: ['./course-add.component.css']
+  styleUrls: ['./course-add.component.css','./../../../../../../assetsadmin/css/sb-admin-2.css']
 })
 export class CourseAddComponent implements OnInit {
-  formAddProduct: FormGroup
+  formAddCourse: FormGroup
   constructor(private fb: FormBuilder) {
     let formControls =
     {
       name: new FormControl('', [
+        Validators.required,
+        Validators.pattern("[a-z .'-]*"),
+        Validators.minLength(2)
+      ]),
+      
+      teacherName: new FormControl('', [
         Validators.required,
         Validators.pattern("[a-z .'-]*"),
         Validators.minLength(2)
@@ -33,26 +39,29 @@ export class CourseAddComponent implements OnInit {
 
 
     }
-    this.formAddProduct = this.fb.group(formControls);
+    this.formAddCourse = this.fb.group(formControls);
 
   }
 
   ngOnInit(): void {
   }
-  verif(){console.log(this.formAddProduct.value)}
+  verif(){console.log(this.formAddCourse.value)}
   get name() {
-    return this.formAddProduct.get('name');
+    return this.formAddCourse.get('name');
+  }
+  get teacherName() {
+    return this.formAddCourse.get('teacherName');
   }
   get description() {
-    return this.formAddProduct.get('description');
+    return this.formAddCourse.get('description');
   }
   get price() {
-    return this.formAddProduct.get('price');
+    return this.formAddCourse.get('price');
   }
   get image() {
-    return this.formAddProduct.get('image');
+    return this.formAddCourse.get('image');
   }
   get category(){
-    return this.formAddProduct.get('category')
+    return this.formAddCourse.get('category')
   }
 }

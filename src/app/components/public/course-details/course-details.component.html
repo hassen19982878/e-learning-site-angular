@@ -1,0 +1,109 @@
+<app-navbar></app-navbar>
+
+   
+    <main>
+        <!--? Hero Start -->
+        <div class="slider-area ">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 text-center">
+                                <h2>Web Development</h2>
+
+                                <button>
+
+                                    <a (click)="enroll()">
+                                        <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;
+                                        Enroll in Course for Free
+                                    </a>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+        <!-- all-course Start -->
+        <section class="all-course section-padding30">
+            <div class="container" style="width:50%;">
+
+                <div class="row">
+                    <div class="all-course-wrapper">
+                        <!-- Heading & Nav Button -->
+                        <div class="row mb-10">
+                            <div class="col-lg-12 mb-90">
+                                <h1>Course Description</h1> <br>
+                                <p>{{cours.name}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container " style="width:50%">
+                <div class="row mb-10">
+                    <h1>Your Instructor</h1>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-lg-12">
+                        <img style="transform: translateX(-40px);margin-bottom: 10px;" width="30% "
+                            src="https://www.filepicker.io/api/file/OTcPsxk1RGiMWmSDgMjw">
+
+                        <p>{{cours.instructor?.description}}
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </section>
+        <!-- all-course End -->
+    </main>
+    <br><h2 style="text-align: center;">Course Curriculum</h2><br><br>
+
+    <div class="courser-curriculum">
+        <div class="container" style="width:50%">
+            <div class=" row course-Curriculum" style="background-color: #f7f7f7;">
+                <div style="width:100%" class="col-lg12">
+                    
+                    <div class="row ">
+                        <div class="col-lg-12 course-section">
+                            <div class="section-title">
+                               <br> <h5>{{cours.name}}</h5><br>
+                            </div>
+                            <div class="section-items">
+                                <table style="width:100%" class="table">
+                                    <tbody>
+                                        <tr *ngFor="let less of lessons">
+                                            <td class="col1">
+                                            <span>{{less.title}}</span>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="before-footer">
+        <h3>Get Started Now !</h3>
+        
+            <button (click)="enroll()"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;
+                Enroll in Course for Free</button>
+        
+    </div>
+    <app-footer></app-footer>

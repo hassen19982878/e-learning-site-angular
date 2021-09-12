@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-courses',
@@ -6,17 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-
-  constructor() { }
-  categories=[{id:1,name:'all'},
-    {id:2,name:'Web'},
-{id:3,name:'Graphic'},
-{id:4,name:'Marketing'}]
-
-courses=[{id:1,name:"course Html css",id_category:2},
-{id:1,name:"course angular",id_category:2},]
-
+  list_categories:any[] = [];
+list_courses:any[]=[];
+allCourses:any[]=[];
+  constructor(private categoryservice:CategoryService,private courserv:CourseService) { }
   ngOnInit(): void {
+    this.categoryservice.get_categories().subscribe(
+      res => { this.list_categories=res; 
+      },
+      err => { console.log(err); }
+
+    )
+    this.courserv.get_courses().subscribe(
+      res=>{console.log(res);
+        this.list_courses=res
+      this.allCourses=res},
+      err=>console.log(err)
+
+    )}
+    filterByCategory(id:Number | undefined){
+console.log(id);
+id == 0? this.list_courses=this.allCourses : this.list_courses=this.allCourses.filter((c)=>c.category.id == id)
+
+    }
+  
   }
 
-}

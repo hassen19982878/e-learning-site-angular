@@ -23,8 +23,7 @@
                         <h1 class="h3 mb-0 text-gray-800">Categories Management</h1>
                     </div>
                     <div>
-                        <a [routerLink]="['/add-category']"
-                            class="btn btn-sm btn-primary mb-2">Add category</a>
+                        <a [routerLink]="['/add-category']" class="btn btn-sm btn-primary mb-2">Add category</a>
                     </div>
 
                 </div>
@@ -44,28 +43,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Smartphones</td>
+                                    <tr *ngFor="let c of list_categories;let i=index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{c.name}}</td>
                                         <td>
-                                            <a [routerLink]="['/category-update']" class="btn btn-sm btn-warning">
+                                            <a [routerLink]="['/category-update',c.id]"
+                                                class="btn btn-sm btn-warning mr-1">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <button class="btn btn-sm btn-danger">
+                                            <button (click)="deleteCategory(c)" class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Laptops</td>
-                                        <td>
-                                            <a [routerLink]="['/category-update']" class="btn btn-sm btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button class="btn btn-sm btn-danger">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
                                     </tr>
                                 </tbody>
                             </table>
@@ -74,7 +63,7 @@
                 </div>
             </div>
             <!-- End of Main Content -->
-       
+
         </div>
     </div>
 </div>

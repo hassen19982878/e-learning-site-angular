@@ -22,39 +22,39 @@
   <hr class="sidebar-divider">
   <!-- Admin items -->
 
-  <li class="nav-item">
+  <li *ngIf="isAdmin"class="nav-item">
     <a class="nav-link" [routerLink]="['/categories-list']">
       <i class="fab fa-elementor"></i>
       <span>Categories Management</span></a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="isAdmin" class="nav-item">
     <a class="nav-link" [routerLink]="['/studuents-list']">
       <i class="fab fa-product-hunt"></i>
       <span>Studuents Management</span></a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="isAdmin"class="nav-item">
     <a class="nav-link" [routerLink]="['/teachers-list']">
       <i class="fas fa-fw fa-users"></i>
       <span>Teachers Management</span></a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="isInstructor" class="nav-item">
     <a class="nav-link" [routerLink]="['/courses-list']">
       <i class="fas fa-fw fa-users"></i>
       <span>Courses Management</span></a>
   </li>
-  <li class="nav-item">
+  <li  *ngIf="isAdmin" class="nav-item">
     <a class="nav-link" [routerLink]="['/orders']">
       <i class="fas fa-fw fa-tasks"></i>
-      <span>Orders Management</span></a>
+      <span>enrolls managment</span></a>
   </li>
 
 
   <!-- Clients items -->
 
-  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/my-orders']">
+  <li *ngIf="isStudent" class="nav-item">
+    <a class="nav-link" [routerLink]="['/my-courses']">
       <i class="fas fa-fw fa-tasks"></i>
-      <span>My orders</span></a>
+      <span>My courses</span></a>
   </li>
 
   <!-- Divider -->

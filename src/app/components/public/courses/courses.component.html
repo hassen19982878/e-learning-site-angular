@@ -19,7 +19,7 @@
     <section class="all-course section-padding30">
         <div class="container">
             <div class="row">
-                <div class="all-course-wrapper">
+                <div class="all-course-wrapper w-100">
                     <!-- Heading & Nav Button -->
                     <div class="row mb-15">
                         <div class="col-lg-12">
@@ -27,11 +27,16 @@
                                 <!--Nav Button  -->
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a *ngFor="let cat of categories"
+                                        <a  (click)="filterByCategory(0)"
                                             class="nav-item nav-link " id="nav-home-tab" data-toggle="tab"
-                                            href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">{{cat.name}}</a>
-                                    </div>
+                                            role="tab" aria-controls="nav-home"
+                                            aria-selected="true" >All</a>
+                                    
+                                        <a  *ngFor="let cat of list_categories"(click)="filterByCategory(cat.id)"
+                                            class="nav-item nav-link " id="nav-home-tab" data-toggle="tab"
+                                            role="tab" aria-controls="nav-home"
+                                            aria-selected="true" >{{cat.name}}</a>
+                                        </div>
                                 </nav>
                                 <!--End Nav Button  -->
                             </div>
@@ -39,14 +44,14 @@
                     </div>
                     <!-- Tab content -->
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" >
                             <!-- Nav Card -->
                             <div class="tab-content" id="nav-tabContent">
                                 <!--  one -->
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab">
                                     <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div *ngFor="let cr of list_courses"class="col-xl-4 col-lg-4 col-md-6">
                                             <!-- Single course -->
                                             <div class="single-course mb-70">
                                                 <div class="course-img">
@@ -54,7 +59,7 @@
                                                 </div>
                                                 <div class="course-caption">
                                                     <div class="course-cap-top">
-                                                        <h4><a href="#">Graphic Design</a></h4>
+                                                        <h4><a [routerLink]="'/course-details/'+cr.id">{{cr.name}}</a></h4>
                                                     </div>
                                                     <div class="course-cap-mid d-flex justify-content-between">
                                                         <div class="course-ratting">
@@ -64,169 +69,7 @@
                                                             <i class="fas fa-star"></i>
                                                             <i class="fas fa-star"></i>
                                                         </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
-                                                <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub2.png" alt="">
-                                                </div>
-                                                <div class="course-caption">
-                                                    <div class="course-cap-top">
-                                                        <h4><a href="./">Web Deveopment</a></h4>
-                                                    </div>
-                                                    <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
-                                                <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub3.png" alt="">
-                                                </div>
-                                                <div class="course-caption">
-                                                    <div class="course-cap-top">
-                                                        <h4><a href="#">Digital Marketing</a></h4>
-                                                    </div>
-                                                    <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
-                                                <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub2.png" alt="">
-                                                </div>
-                                                <div class="course-caption">
-                                                    <div class="course-cap-top">
-                                                        <h4><a href="#">Graphic Design</a></h4>
-                                                    </div>
-                                                    <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
-                                                <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub3.png" alt="">
-                                                </div>
-                                                <div class="course-caption">
-                                                    <div class="course-cap-top">
-                                                        <h4><a href="./course-details.html">Web Develo pment</a></h4>
-                                                    </div>
-                                                    <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
-                                                <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub1.png" alt="">
-                                                </div>
-                                                <div class="course-caption">
-                                                    <div class="course-cap-top">
-                                                        <h4><a href="#">Digital Marketing</a></h4>
-                                                    </div>
-                                                    <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
+                                                        <ul><li>52 Review</li></ul>
                                                     </div>
                                                     <div class="course-cap-bottom d-flex justify-content-between">
                                                         <ul>

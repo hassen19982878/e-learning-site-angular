@@ -20,7 +20,7 @@
                   <h1 class="h3 mb-0 text-gray-800">Products Management</h1>
                 </div>
                 <div>
-                  <a [routerLink]="['/add-studuent']" class="btn btn-sm btn-primary mb-2">Add product</a>
+                  <a [routerLink]="['/add-studuent']" class="btn btn-sm btn-primary mb-2">Add lesson</a>
               </div>
       
               </div>
@@ -31,54 +31,35 @@
               </div>
     
               <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Image </th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="align-middle">1</td>
-                        <td><img src="http://placehold.it/700x400" width="150" height="100">
-                        </td>
-                        <td class="align-middle">iPhone</td>
-                        <td class="align-middle">Lorem ipsum dolor</td>
-                        <td class="align-middle">$900</td>
-                        <td class="align-middle">Smartphones</td>
-                        <td class="align-middle">
-                            <a [routerLink]="['/studuent-update']" class="btn btn-sm btn-warning">
-                                 <i class="fas fa-edit"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle">2</td>
-                        <td ><img src="http://placehold.it/700x400" width="150" height="100"> </td>
-                        <td class="align-middle">Macbook</td>
-                        <td class="align-middle">Lorem ipsum dolor</td>
-                        <td class="align-middle">$1500</td>
-                        <td class="align-middle">Laptops</td>
-                        <td class="align-middle">
-                            <a [routerLink]="['/productupdate']" class="btn btn-sm btn-warning">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>link video</th>
+                            <th>Update/Delete</th>
+                            
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Web development</td>
+                            <td>htt://jndjjfjlfi</td>
+                            <td>
+                                <a href="./category-update.html" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
         </div>
         </div>
         </div>
