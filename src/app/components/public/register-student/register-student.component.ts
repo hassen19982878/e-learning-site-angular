@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Student } from 'src/app/models/student';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-student',
@@ -11,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisterStudentComponent implements OnInit {
 
   formRegister: FormGroup
-  constructor(private fb: FormBuilder,private user:UserService) {
+  constructor(private fb: FormBuilder,private user:UserService,private router:Router) {
     let formControls =
     {
       firstname: new FormControl('', [
@@ -47,7 +49,7 @@ export class RegisterStudentComponent implements OnInit {
     let data=this.formRegister.value;
     let student=new Student(undefined,data.firstname,data.lastname,data.email,data.password,undefined)
     this.user.registerStudent(student).subscribe(
-res=>console.log(res),
+res=>this.router.navigateByUrl('/login'),
 err=>console.log(err)
 
     )

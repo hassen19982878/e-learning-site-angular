@@ -17,7 +17,9 @@ constructor(private user:UserService)
     this.isAdmin=this.user.isLoggedInAdmin();
     this.isStudent=this.user.isLoggedInStudent();
     this.isInstructor=this.user.isLoggedInInstructor()
-  
+   console.log(this.isInstructor)
+    console.log(this.isAdmin)
+  console.log("jj")
   }
 
 }

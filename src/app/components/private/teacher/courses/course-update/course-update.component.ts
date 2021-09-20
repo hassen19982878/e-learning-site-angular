@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-course-update',
   templateUrl: './course-update.component.html',
-  styleUrls: ['./course-update.component.css']
+  styleUrls: ['./course-update.component.css','./../../../../../../assetsadmin/css/sb-admin-2.css']
 })
 export class CourseUpdateComponent implements OnInit {
   formUpdateProduct: FormGroup
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private route:ActivatedRoute,private serv:UserService) {
     let formControls =
     {
       name: new FormControl('', [
@@ -38,8 +40,7 @@ export class CourseUpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-  verif(){console.log(this.formUpdateProduct.value)}
+    }
   get name() {
     return this.formUpdateProduct.get('name');
   }

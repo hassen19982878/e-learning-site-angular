@@ -52,9 +52,9 @@
                             <td class="align-middle">{{c.name}}</td>
                             <td class="align-middle">{{c.imageUrl}}</td>
                             <td class="align-middle">{{c.category.name}}</td>
-                            <td class="align-middle">{{c.instructor}}</td>
+                            <td class="align-middle">{{c.instructor.firstname}} {{c.instructor.lastname}}</td>
                             <td class="align-middle">
-                                <a href="./product-update.html" class="btn btn-sm btn-warning mr-1">
+                                <a  [routerLink]="'/course-update/'+c.id"class="btn btn-sm btn-warning mr-1">
                                      <i class="fas fa-edit"></i>
                                 </a>
                                 <button (click)="deleteCourse(c)"class="btn btn-sm btn-danger">

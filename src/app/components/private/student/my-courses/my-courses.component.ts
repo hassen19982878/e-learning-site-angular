@@ -17,12 +17,12 @@ let idStudent=this.user.getIdStudent();
 console.log(idStudent)
 this.http.get<any>("http://localhost:8080/enroll/all").subscribe(
 res=>{ this.enrolls=res;
-console.log(res)
+  console.log(this.enrolls)
+  this.enrolls=this.enrolls.filter((u)=>u.student.id==idStudent)
+  console.log(this.enrolls)
 },
 err=>console.log(err)
 )
-this.enrolls.filter((u)=>u.course.id==idStudent)
-console.log(this.enrolls)
   }
 
 }

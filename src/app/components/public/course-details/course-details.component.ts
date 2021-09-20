@@ -22,7 +22,6 @@ export class CourseDetailsComponent implements OnInit {
 cours:any={}
 lessons:any=[]
   ngOnInit(): void {
-    
     let idCours=this.route.snapshot.params.id;
     console.log(idCours)
     this.course.getOneCourse(idCours).subscribe(
@@ -46,7 +45,7 @@ this.lessons=res.lessons
   let enroll=new Enroll(undefined,student,cours)
   this.http.post<any>("http://localhost:8080/enroll/add",enroll).subscribe(
     res=>{console.log(res);
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/my-courses')
   console.log('hhh')},
     err=>console.log(err)
   );

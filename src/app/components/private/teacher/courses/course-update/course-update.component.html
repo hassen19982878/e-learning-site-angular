@@ -17,18 +17,18 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Product</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Update Course</h1>
                     </div>
 
                 </div>
                 <div class="col">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Update product's details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Update courses's details</h6>
                         </div>
 
                         <div class="card-body">
-                            <form [formGroup]="formUpdateProduct" (ngSubmit)="verif()">
+                            <form [formGroup]="formUpdateProduct" >
                                 <div class="form-group">
                                     <label for="name" id="name">Name : </label>
                                     <input type="text" class="form-control" formControlName="name">
@@ -47,13 +47,6 @@
                                           <small *ngIf="description?.errors?.minlength" class="text-danger">description must contain six characters at least</small>
                                         </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="price" id="price">Price : </label>
-                                    <input type="number" class="form-control" formControlName="price">
-                                    <div *ngIf="price?.touched && price?.invalid">
-                                      <small *ngIf="price?.errors?.required" class="text-danger">price is required</small><br>
-                                    </div>
-                                  </div>
                                   <div class="form-group">
                                     <label for="photo" id="image">Image : </label>
                                     <input type="file" class="form-control-file" formControlName="image">
@@ -80,6 +73,5 @@
                 </div>
 
             </div>
-            <app-footer></app-footer>
         </div>
     </div>

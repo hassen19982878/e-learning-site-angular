@@ -31,6 +31,7 @@ import { RegisterStudentComponent } from './components/public/register-student/r
 import { RegisterInstructorComponent } from './components/public/register-instructor/register-instructor.component';
 import { LoginInstructorComponent } from './components/public/login-instructor/login-instructor.component';
 import { MyCoursesComponent } from './components/private/student/my-courses/my-courses.component';
+import { MyLessonsComponent } from './components/private/student/my-lessons/my-lessons.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MyCoursesComponent } from './components/private/student/my-courses/my-c
     RegisterStudentComponent,
     RegisterInstructorComponent,
     LoginInstructorComponent,
-    MyCoursesComponent
+    MyCoursesComponent,
+    MyLessonsComponent
   ],
   imports: [
     BrowserModule,

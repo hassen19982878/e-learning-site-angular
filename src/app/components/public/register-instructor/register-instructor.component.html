@@ -49,13 +49,12 @@
                               <small *ngIf="email?.errors?.email" class="text-danger">Invalid email <br></small>
                             </div>
                         </div>
-                        <div class="form-group">
-                          <input type="file" class="form-control form-control-user" id="exampleInputEmail"
+                          <input type="file" id="exampleInputEmail"
                             placeholder="upload your image" formControlName="image">
                             <div *ngIf="image?.touched && image?.invalid">
                               <small *ngIf="image?.errors?.required" class="text-danger">image is required <br></small>
                             </div>
-                        </div>
+                        
                         
                         <div class="form-group">
                           <textarea type="text" class="form-control form-control-user" id="exampleLastName"

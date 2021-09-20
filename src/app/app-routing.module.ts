@@ -10,6 +10,7 @@ import { StuduentListComponent } from './components/private/admin/studuents/stud
 import { TeacherListComponent } from './components/private/admin/teachers/teacher-list/teacher-list.component';
 import { DashboardComponent } from './components/private/shared/dashboard/dashboard.component';
 import { MyCoursesComponent } from './components/private/student/my-courses/my-courses.component';
+import { MyLessonsComponent } from './components/private/student/my-lessons/my-lessons.component';
 import { CourseAddComponent } from './components/private/teacher/courses/course-add/course-add.component';
 import { CourseListComponent } from './components/private/teacher/courses/course-list/course-list.component';
 import { CourseUpdateComponent } from './components/private/teacher/courses/course-update/course-update.component';
@@ -55,7 +56,7 @@ canActivate:[InstructorGuard]
 {path:'add-course',component:CourseAddComponent,
 canActivate:[InstructorGuard]
 },
-{path:'course-update',component:CourseUpdateComponent,
+{path:'course-update/:id',component:CourseUpdateComponent,
 canActivate:[InstructorGuard]
 },
 {path:'lessons-list',component:LessonListComponent,
@@ -76,7 +77,10 @@ canActivate:[InstructorGuard]
 {path:"registerStudent",component:RegisterStudentComponent},
 {path:"registerInstructor",component:RegisterInstructorComponent},
 {path:"login-instructor",component:LoginInstructorComponent},
-{path:'my-courses',component:MyCoursesComponent}
+{path:'my-courses',component:MyCoursesComponent,
+canActivate:[StudentGuard]
+},
+{path:'my-lessons/:id',component:MyLessonsComponent}
 
 ];
 

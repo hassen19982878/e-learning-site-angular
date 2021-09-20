@@ -29,7 +29,7 @@ isLoggedInAdmin() {
   if (token) {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-if(decodedToken.data.role=="admin")
+if(decodedToken.role=="admin")
 {return true}
 else {return false}
   }else
@@ -40,8 +40,11 @@ isLoggedInInstructor() {
   if (token) {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-if(decodedToken.data.role=="instructor")
-{return true}
+if(decodedToken.role=="instructor")
+{console.log("inst");
+  return true
+
+}
 else {return false}
   }else
     return false
@@ -52,7 +55,7 @@ isLoggedInStudent() {
   if (token) {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-if(decodedToken.data.role=="student")
+if(decodedToken.role=="student")
 {return true}
 else {return false}
   }else
@@ -63,9 +66,35 @@ getIdStudent()
 if (token) {
   const helper = new JwtHelperService();
   const decodedToken = helper.decodeToken(token);
-  return decodedToken.data.id
+  return decodedToken.id
 }
 
 
+}
+
+get_students()
+{return this.http.get<any>("http://localhost:8080/students/all")
+
+}
+get_instructors()
+{return this.http.get<any>("http://localhost:8080/instructors/all")
+
+}
+delete_student_by_id(id:any)
+{
+  return this.http.delete<any>("http//localhost:8080/students/delete/"+id)
+}
+delete_instructor_by_id(id:any)
+{
+  return this.http.delete<any>("http//localhost:8080/instructors/delete/"+id)
+}
+updateStudent(student:Student)
+{
+  return this.http.put<any>("http://localhost:8080/students/update",student)
+}
+
+updateInstructor(instructor:Instructor)
+{
+  return this.http.put<any>("http://localhost:8080/students/update",instructor)
 }
 }
